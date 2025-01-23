@@ -1,6 +1,6 @@
 # AWStats
 
-Simple docker image for AWStats without any bloat, built on the official perl image with the addition of fcgiwrap. AWStats runs as user `awstats` with `uid` and `gid` `1000`.
+Simple docker image for AWStats with HeoIP support, built on the official perl image. AWStats runs as user `awstats` with `uid` and `gid` `1000`.
 
 ## Usage
 
