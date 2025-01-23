@@ -1,0 +1,71 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "commitMessagePrefix": "renovate:",
+  "customManagers": [{
+    "customType": "regex",
+    "datasourceTemplate": "deb",
+    "fileMatch": [
+      "^Dockerfile$"
+    ],
+    "matchStrings": [
+      "#\\s*renovate:\\s*?(release=(?<release>.*?))?\\s*depName=(?<depName>.*?)?\\sENV .*?_VERSION=(?<currentValue>.*)"
+    ],
+    "registryUrlTemplate": "https://deb.debian.org/debian?suite=stable&components=main&binaryArch=amd64"
+  }, {
+    "autoReplaceStringTemplate": "AWSTATS_VERSION: \"{{{newMajor}}}.{{{newMinor}}}\"",
+    "customType": "regex",
+    "currentValueTemplate": "AWSTATS_{{{ replace '\\.' '_' currentValue }}}",
+    "datasourceTemplate": "github-releases",
+    "depNameTemplate": "eldy/awstats",
+    "extractVersionTemplate": "^AWSTATS_(?<version>\\d+\\_\\d+)$",
+    "fileMatch": [
+      "^.gitlab-ci\\.ya?ml$"
+    ],
+    "matchStrings": [
+      "AWSTATS_VERSION: \"(?<currentValue>.*)\""
+    ],
+    "versioningTemplate": "regex:(?<major>\\d+)\\_(?<minor>\\d+)$"
+  }, {
+    "customType": "regex",
+    "datasourceTemplate": "docker",
+    "depNameTemplate": "perl",
+    "fileMatch": [
+      "^.gitlab-ci\\.ya?ml$"
+    ],
+    "matchStrings": [
+      "PERL_VERSION: \"(?<currentValue>.*)\""
+    ],
+    "versioningTemplate": "semver"
+  }],
+  "packageRules": [{
+    "allowedVersions": "/\\d+\\.\\d+\\.\\d+-buster/",
+    "matchPackageNames": [
+      "perl"
+    ]
+  }, {
+    "autoApprove": true,
+    "matchUpdateTypes": [
+      "major"
+    ]
+  }, {
+    "automerge": true,
+    "matchUpdateTypes": [
+      "minor"
+    ]
+  }, {
+    "automerge": true,
+    "automergeType": "branch",
+    "matchUpdateTypes": [
+      "patch"
+    ]
+  }, {
+    "ignoreUnstable": false,
+    "matchPackageNames": [
+      "eldy/awstats"
+    ],
+    "separateMajorMinor": true,
+    "separateMinorPatch": true,
+    "separateMultipleMajor": true,
+    "separateMultipleMinor": true
+  }]
+}
