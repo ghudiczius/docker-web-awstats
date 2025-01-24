@@ -38,7 +38,7 @@
     "versioningTemplate": "docker"
   }],
   "packageRules": [{
-    "allowedVersions": "/\\d+\\.\\d+\\.\\d+-buster/",
+    "allowedVersions": "/\\d+\\.\\d+\\.\\d+-bullseye/",
     "matchPackageNames": [
       "perl"
     ]

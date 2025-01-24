@@ -1,8 +1,8 @@
-FROM perl:5.40.0-buster
+FROM perl:5.40.0-bullseye
 
 ARG AWSTATS_VERSION
 
-# renovate: release=buster depName=fcgiwrap
+# renovate: release=bullseye depName=fcgiwrap
 ENV FCGIWRAP_VERSION=1.1.0-12
 
 ADD ["cpanfile", "/usr/local/awstats/cpanfile"]
