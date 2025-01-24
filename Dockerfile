@@ -1,4 +1,4 @@
-FROM perl:5.40.0-buster
+FROM perl:5.32.0-buster
 
 ARG AWSTATS_VERSION
 
