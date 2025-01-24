@@ -3,7 +3,7 @@ FROM perl:5.41.8-bookworm
 ARG AWSTATS_VERSION
 
 # renovate: release=bookworm depName=fcgiwrap
-ENV FCGIWRAP_VERSION=1.1.0-12
+ENV FCGIWRAP_VERSION=1.1.0-14+deb12u1
 
 ADD ["cpanfile", "/usr/local/awstats/cpanfile"]
 
