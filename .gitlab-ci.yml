@@ -1,7 +1,7 @@
 ---
 variables:
   DOCKER_HUB_IMAGE: "${DOCKER_HUB_USERNAME}/${CI_PROJECT_NAME}"
-  PERL_VERSION: "5.41.8-bookworm"
+  PERL_VERSION: "5.41.10-bookworm"
   AWSTATS_VERSION: "7.9"
 
 workflow:
