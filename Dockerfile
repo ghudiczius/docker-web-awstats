@@ -1,4 +1,4 @@
-FROM perl:5.41.13-bookworm
+FROM perl:5.42.0-bookworm
 
 ARG AWSTATS_VERSION
 
